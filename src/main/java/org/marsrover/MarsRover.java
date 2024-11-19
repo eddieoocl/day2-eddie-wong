@@ -88,6 +88,12 @@ public class MarsRover {
         }
     }
 
+    public void bashExecute(String bashCommand) {
+        for (char command : bashCommand.toCharArray()) {
+            execute(Character.toString(command));
+        }
+    }
+
     public String generateStatus() {
         return String.format("%d:%d:%s", x, y, this.direction.toString());
     }
