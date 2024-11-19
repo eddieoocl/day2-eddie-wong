@@ -3,6 +3,32 @@ package org.marsrover;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+enum Command {
+    Left("L"),
+    Right("R"),
+    Move("M");
+
+    private String value;
+
+    Command(final String value) {
+        this.value = value;
+    }
+
+    public static Command getCommand(final String value) {
+        for (final Command command : Command.values()) {
+            if (command.value.equals(value)) {
+                return command;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+}
+
 enum MovingDirection {
     Forward, Backward
 }
@@ -42,6 +68,24 @@ public class MarsRover {
         this.direction = direction;
         this.x = 0;
         this.y = 0;
+    }
+
+    public void execute(String command) {
+        Command cmd = Command.getCommand(command);
+        switch (cmd) {
+            case Left: {
+                rotate(Rotation.Left);
+                break;
+            }
+            case Right: {
+                rotate(Rotation.Right);
+                break;
+            }
+            case Move: {
+                move(MovingDirection.Forward);
+                break;
+            }
+        }
     }
 
     public String generateStatus() {
