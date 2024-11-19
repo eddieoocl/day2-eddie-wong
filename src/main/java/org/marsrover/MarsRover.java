@@ -19,7 +19,6 @@ enum Direction {
     }
 }
 
-
 public class MarsRover {
     private Direction direction;
     private int x;
@@ -42,6 +41,56 @@ public class MarsRover {
     }
 
     public void rotate(Rotation rotation) {
-        return;
+        switch (rotation) {
+            case Left: {
+                rotateLeft();
+                break;
+            }
+            case Right: {
+                rotateRight();
+            }
+        }
+    }
+
+    public void rotateLeft() {
+        switch (this.direction) {
+            case North: {
+                this.direction = Direction.West;
+                break;
+            }
+            case East: {
+                this.direction = Direction.North;
+                break;
+            }
+            case South: {
+                this.direction = Direction.East;
+                break;
+            }
+            case West: {
+                this.direction = Direction.South;
+                break;
+            }
+        }
+    }
+
+    public void rotateRight() {
+        switch (this.direction) {
+            case North: {
+                this.direction = Direction.East;
+                break;
+            }
+            case East: {
+                this.direction = Direction.South;
+                break;
+            }
+            case South: {
+                this.direction = Direction.West;
+                break;
+            }
+            case West: {
+                this.direction = Direction.North;
+                break;
+            }
+        }
     }
 }
