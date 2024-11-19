@@ -31,4 +31,46 @@ public class MarsRoverTest {
         // Then
         assertEquals("0:0:W", status);
     }
+
+    @Test
+    public void should_face_south_when_direction_west_and_turn_left() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.West);
+        Rotation rotation = Rotation.Left;
+
+        // When
+        rover.rotate(rotation);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:0:S", status);
+    }
+
+    @Test
+    public void should_face_east_when_direction_south_and_turn_left() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.South);
+        Rotation rotation = Rotation.Left;
+
+        // When
+        rover.rotate(rotation);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:0:E", status);
+    }
+
+    @Test
+    public void should_face_north_when_direction_east_and_turn_left() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.East);
+        Rotation rotation = Rotation.Left;
+
+        // When
+        rover.rotate(rotation);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:0:N", status);
+    }
 }
