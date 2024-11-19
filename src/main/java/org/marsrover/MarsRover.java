@@ -1,5 +1,9 @@
 package org.marsrover;
 
+enum Rotation {
+    Left, Right
+}
+
 enum Direction {
     North("N"), East("E"), South("S"), West("W");
 
@@ -27,7 +31,17 @@ public class MarsRover {
         this.y = 0;
     }
 
+    public MarsRover(Direction direction) {
+        this.direction = direction;
+        this.x = 0;
+        this.y = 0;
+    }
+
     public String generateStatus() {
         return String.format("%d:%d:%s", x, y, this.direction.toString());
+    }
+
+    public void rotate(Rotation rotation) {
+        return;
     }
 }

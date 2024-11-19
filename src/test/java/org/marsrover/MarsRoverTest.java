@@ -17,4 +17,18 @@ public class MarsRoverTest {
         // Then
         assertEquals("0:0:N", status);
     }
+
+    @Test
+    public void should_face_west_when_direction_north_and_turn_left() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.North);
+        Rotation rotation = Rotation.Left;
+
+        // When
+        rover.rotate(rotation);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:0:W", status);
+    }
 }
