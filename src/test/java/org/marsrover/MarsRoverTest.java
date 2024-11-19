@@ -185,4 +185,60 @@ public class MarsRoverTest {
         // Then
         assertEquals("1:0:E", status);
     }
+
+    @Test
+    public void should_y_decrease_by_1_when_direction_north_and_move_backward() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.North);
+        MovingDirection movingDirection = MovingDirection.Backward;
+
+        // When
+        rover.move(movingDirection);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:-1:N", status);
+    }
+
+    @Test
+    public void should_x_increase_by_1_when_direction_west_and_move_backward() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.West);
+        MovingDirection movingDirection = MovingDirection.Backward;
+
+        // When
+        rover.move(movingDirection);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("1:0:W", status);
+    }
+
+    @Test
+    public void should_y_increase_by_1_when_direction_south_and_move_backward() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.South);
+        MovingDirection movingDirection = MovingDirection.Backward;
+
+        // When
+        rover.move(movingDirection);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:1:S", status);
+    }
+
+    @Test
+    public void should_x_decrease_by_1_when_direction_east_and_move_backward() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.East);
+        MovingDirection movingDirection = MovingDirection.Backward;
+
+        // When
+        rover.move(movingDirection);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("-1:0:E", status);
+    }
 }
