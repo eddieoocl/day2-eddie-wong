@@ -1,5 +1,8 @@
 package org.marsrover;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 enum Rotation {
     Left, Right
 }
@@ -20,6 +23,7 @@ enum Direction {
 }
 
 public class MarsRover {
+    private final ArrayList<Direction> directions = new ArrayList<>(Arrays.asList(Direction.North, Direction.East, Direction.South, Direction.West));
     private Direction direction;
     private int x;
     private int y;
@@ -53,44 +57,12 @@ public class MarsRover {
     }
 
     public void rotateLeft() {
-        switch (this.direction) {
-            case North: {
-                this.direction = Direction.West;
-                break;
-            }
-            case East: {
-                this.direction = Direction.North;
-                break;
-            }
-            case South: {
-                this.direction = Direction.East;
-                break;
-            }
-            case West: {
-                this.direction = Direction.South;
-                break;
-            }
-        }
+        int nextDirectionIndex = directions.indexOf(this.direction) - 1 == -1 ? directions.size() - 1 : directions.indexOf(this.direction) - 1;
+        this.direction = directions.get(nextDirectionIndex);
     }
 
     public void rotateRight() {
-        switch (this.direction) {
-            case North: {
-                this.direction = Direction.East;
-                break;
-            }
-            case East: {
-                this.direction = Direction.South;
-                break;
-            }
-            case South: {
-                this.direction = Direction.West;
-                break;
-            }
-            case West: {
-                this.direction = Direction.North;
-                break;
-            }
-        }
+        int nextDirectionIndex = (directions.indexOf(this.direction) + 1) % directions.size();
+        this.direction = directions.get(nextDirectionIndex);
     }
 }
