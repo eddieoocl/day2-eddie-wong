@@ -129,4 +129,18 @@ public class MarsRoverTest {
         // Then
         assertEquals("0:0:S", status);
     }
+
+    @Test
+    public void should_y_increase_by_1_when_direction_north_and_move_forward() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.North);
+        MovingDirection movingDirection = MovingDirection.Forward;
+
+        // When
+        rover.move(movingDirection);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:1:N", status);
+    }
 }

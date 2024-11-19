@@ -3,6 +3,10 @@ package org.marsrover;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+enum MovingDirection {
+    Forward, Backward
+}
+
 enum Rotation {
     Left, Right
 }
@@ -64,5 +68,9 @@ public class MarsRover {
     public void rotateRight() {
         int nextDirectionIndex = (directions.indexOf(this.direction) + 1) % directions.size();
         this.direction = directions.get(nextDirectionIndex);
+    }
+
+    public void move(MovingDirection movingDirection) {
+        return;
     }
 }
