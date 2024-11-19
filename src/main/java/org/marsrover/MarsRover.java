@@ -71,6 +71,56 @@ public class MarsRover {
     }
 
     public void move(MovingDirection movingDirection) {
-        return;
+        switch (movingDirection) {
+            case Forward: {
+                moveForward();
+                break;
+            }
+            case Backward: {
+                moveBackward();
+            }
+        }
+    }
+
+    public void moveForward() {
+        switch (this.direction) {
+            case North: {
+                this.y += 1;
+                break;
+            }
+            case East: {
+                this.x += 1;
+                break;
+            }
+            case South: {
+                this.y -= 1;
+                break;
+            }
+            case West: {
+                this.x -= 1;
+                break;
+            }
+        }
+    }
+
+    public void moveBackward() {
+        switch (this.direction) {
+            case North: {
+                this.y -= 1;
+                break;
+            }
+            case East: {
+                this.x -= 1;
+                break;
+            }
+            case South: {
+                this.y += 1;
+                break;
+            }
+            case West: {
+                this.x += 1;
+                break;
+            }
+        }
     }
 }
