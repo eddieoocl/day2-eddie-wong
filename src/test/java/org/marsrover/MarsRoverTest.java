@@ -19,6 +19,20 @@ public class MarsRoverTest {
     }
 
     @Test
+    public void should_turn_left_when_execute_command_L() {
+        // Given
+        MarsRover rover = new MarsRover(Direction.North);
+        String command = "L";
+
+        // When
+        rover.execute(command);
+        String status = rover.generateStatus();
+
+        // Then
+        assertEquals("0:0:W", status);
+    }
+
+    @Test
     public void should_face_west_when_direction_north_and_turn_left() {
         // Given
         MarsRover rover = new MarsRover(Direction.North);
